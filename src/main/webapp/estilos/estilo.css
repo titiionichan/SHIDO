@@ -1,4 +1,10 @@
 /* ==========================================
+   ESTILO.CSS - BASE COMPARTIDA DE TODO EL SITIO
+   Solo contiene lo que usan todas las páginas:
+   variables, reset, body, títulos, navbar (menu.jsp) y footer (pie.jsp).
+   Cada vista tiene su propio CSS en esta misma carpeta.
+   ========================================== */
+/* ==========================================
    1. VARIABLES CSS Y CONFIGURACIÓN GLOBAL
    ========================================== */
 :root {
@@ -20,6 +26,12 @@
 
 * {
     box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body {
@@ -50,12 +62,6 @@ h2 {
     margin-top: 20px !important;
     margin-bottom: 15px !important;
     margin-left: 80px !important;
-}
-
-.tarjeta-info h2,
-.tarjeta-tabla h2 {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
 }
 
 /* ==========================================
@@ -125,279 +131,12 @@ nav, .navbar {
 }
 
 /* ==========================================
-   4. CONTENEDOR DE TARJETAS INFORMATIVAS (INFORMACION.JSP)
-   ========================================== */
-.contenedor-inicio {
-    max-width: 1100px;
-    margin: 30px auto 40px auto;
-    padding: 0 20px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.tarjeta-info {
-    background-color: var(--color-tarjeta);
-    border-radius: var(--radius-lg);
-    padding: 24px 25px;
-    box-shadow: var(--sombra-suave);
-    border-top: 4px solid var(--color-secundario);
-    border-left: 1px solid var(--color-borde);
-    border-right: 1px solid var(--color-borde);
-    border-bottom: 1px solid var(--color-borde);
-    text-align: left;
-}
-
-.tarjeta-info h2 {
-    color: var(--color-secundario);
-    margin-top: 0 !important;
-    margin-bottom: 12px !important;
-    margin-left: 0 !important;
-    font-size: 1.35rem;
-}
-
-.tarjeta-info p {
-    margin: 0;
-    line-height: 1.6;
-    color: var(--color-texto);
-}
-
-.lista-integrantes {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 12px;
-    margin-bottom: 0;
-}
-
-.lista-integrantes li {
-    padding: 4px 0;
-    position: relative;
-    padding-left: 20px;
-    color: var(--color-texto);
-}
-
-.lista-integrantes li::before {
-    content: "•";
-    color: var(--color-secundario);
-    font-weight: bold;
-    font-size: 1.2rem;
-    position: absolute;
-    left: 0;
-    top: 2px;
-}
-
-/* ==========================================
-   5. CONTENEDOR DEL FORMULARIO Y LOGO LATERAL
-   ========================================== */
-.seccion-formulario-logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-left: 80px !important;
-    margin-top: 10px !important;
-    margin-bottom: 35px !important;
-    flex-wrap: wrap;
-}
-
-.form-container, .tarjeta-form {
-    max-width: 400px;
-    width: 100%;
-    background-color: var(--color-tarjeta);
-    padding: 24px 28px;
-    border-radius: var(--radius-lg);
-    border-left: 5px solid var(--color-secundario);
-    border-top: 1px solid var(--color-borde);
-    border-right: 1px solid var(--color-borde);
-    border-bottom: 1px solid var(--color-borde);
-    box-shadow: var(--sombra-suave);
-    transition: var(--transicion-suave);
-}
-
-.logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    margin-left: 140px !important;
-}
-
-.logo-container img {
-    width: 360px;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
-}
-
-/* ==========================================
-   6. CONTROLES DE FORMULARIO Y BOTONES
-   ========================================== */
-.form-group, .campo-form {
-    display: block;
-    margin-bottom: 14px;
-}
-
-.form-group label, .campo-form label {
-    display: block;
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--color-texto);
-    margin-bottom: 6px;
-}
-
-.form-group input, 
-.form-group select,
-.campo-form input,
-.campo-form select,
-.campo-form textarea {
-    display: block;
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--color-borde);
-    border-radius: var(--radius-md);
-    font-size: 0.95rem;
-    color: var(--color-texto);
-    background-color: #ffffff;
-    outline: none;
-    transition: var(--transicion-suave);
-    box-sizing: border-box;
-}
-
-.form-group input:focus, 
-.form-group select:focus,
-.campo-form input:focus, 
-.campo-form select:focus,
-.campo-form textarea:focus {
-    border-color: var(--color-secundario);
-    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
-}
-
-.btn-submit, .btn-guardar, .btn-primario {
-    display: inline-block;
-    background-color: var(--color-secundario);
-    color: #ffffff;
-    padding: 10px 22px;
-    border: none;
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: var(--transicion-suave);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    margin-top: 8px;
-}
-
-.btn-submit:hover, .btn-guardar:hover, .btn-primario:hover {
-    background-color: var(--color-primario);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-}
-
-.btn-submit:active, .btn-guardar:active, .btn-primario:active {
-    transform: translateY(0);
-}
-
-/* ==========================================
-   7. TABLAS Y LISTADOS INFERIORES
-   ========================================== */
-.tarjeta-tabla {
-    margin-left: 80px !important;
-    margin-right: 80px !important;
-    margin-bottom: 35px;
-    background-color: var(--color-tarjeta);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-borde);
-    box-shadow: var(--sombra-suave);
-    overflow: hidden;
-    padding: 0;
-    width: calc(100% - 160px) !important;
-}
-
-.tarjeta-tabla h2 {
-    margin-left: 0 !important;
-    padding: 20px 24px 0 24px;
-    margin-bottom: 12px !important;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--color-tarjeta);
-    margin: 0;
-}
-
-table th {
-    background-color: var(--color-secundario);
-    color: #ffffff;
-    font-size: 0.825rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 14px 20px;
-    text-align: left;
-    border: none;
-}
-
-table td {
-    padding: 14px 20px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid var(--color-borde);
-    color: var(--color-texto);
-    font-size: 0.925rem;
-}
-
-table tr:last-child td {
-    border-bottom: none;
-}
-
-table tr:hover {
-    background-color: #f1f5f9;
-    transition: background-color 0.15s ease-in-out;
-}
-
-/* ==========================================
-   8. CHIPS Y BADGES DE ESTADO
-   ========================================== */
-.badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    line-height: 1;
-}
-
-.badge-exito {
-    background-color: #dcfce7;
-    color: #166534;
-}
-
-.badge-info {
-    background-color: #e0f2fe;
-    color: #075985;
-}
-
-.badge-advertencia {
-    background-color: #fef3c7;
-    color: #92400e;
-}
-
-/* ==========================================
-   9. PIE DE PÁGINA (FOOTER)
-   ========================================== */
-/* ==========================================
-   9. PIE DE PÁGINA (FOOTER) CON 3 NIVELES DE COLOR Y BOTONES PÍLDORA
+   4. PIE DE PÁGINA (FOOTER) CON 3 NIVELES DE COLOR Y BOTONES PÍLDORA
    ========================================== */
 .footer {
-    --footer-ola-alto: 90px;
-    --footer-bloque-alto: 260px;
-    --footer-logo-alto: 240px;
+    --footer-ola-alto: 65px;
+    --footer-bloque-alto: 165px;
+    --footer-logo-alto: 155px;
 
     position: relative;
     z-index: 1;
@@ -405,12 +144,6 @@ table tr:hover {
     margin-top: 0 !important;
     color: #ffffff;
     text-align: center;
-}
-
-/* El hero se extiende por detrás de la ola */
-body .hero-banner-full {
-    padding-bottom: 90px;
-    margin-bottom: -90px;
 }
 
 /* ---------- 1. NIVEL OLA Y ZONA DE LOGO ---------- */
@@ -450,10 +183,10 @@ body .hero-banner-full {
     transform: translate(-50%, -50%);
     height: var(--footer-logo-alto);
     width: auto;
-    max-width: 90%;
+    max-width: 85%;
     object-fit: contain;
     margin: 0;
-    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
 }
 
 @keyframes footer-ola {
@@ -463,27 +196,27 @@ body .hero-banner-full {
 
 /* ---------- 2. NIVEL INTERMEDIO: NAVEGACIÓN Y BOTONES PÍLDORA ---------- */
 .footer-nav-container {
-    background-color: var(--color-primario); /* #13302D */
-    padding: 30px 20px 25px;
+    background-color: var(--color-primario);
+    padding: 18px 20px 16px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
 }
 
 .footer-nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px 36px;
+    gap: 10px 30px;
 }
 
 .footer-nav a {
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: var(--transicion-suave);
 }
 
@@ -497,17 +230,17 @@ body .hero-banner-full {
 .footer-btn-group {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 14px;
     flex-wrap: wrap;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .footer-btn-pill {
-    background-color: #0a1b1a; /* Fondo oscuro tipo píldora */
+    background-color: #0a1b1a;
     color: #ffffff;
-    padding: 10px 30px;
+    padding: 8px 26px;
     border-radius: 30px;
-    font-size: 0.90rem;
+    font-size: 0.88rem;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.25s ease;
@@ -531,20 +264,20 @@ body .hero-banner-full {
 .footer-info,
 .footer-copyright {
     background-color: #0a1b1a;
-    font-size: 0.875rem;
+    font-size: 0.82rem;
     padding: 0 20px;
 }
 
 .footer-info {
     color: #cbd5e1;
-    padding-top: 16px;
-    padding-bottom: 6px;
+    padding-top: 12px;
+    padding-bottom: 4px;
 }
 
 .footer-copyright {
     color: #94a3b8;
     font-weight: 500;
-    padding-bottom: 24px;
+    padding-bottom: 16px;
 }
 
 /* Respeta a quienes desactivan las animaciones */
@@ -552,484 +285,118 @@ body .hero-banner-full {
     .footer-ola-track { animation: none; }
 }
 
-/* Celular */
+/* ==========================================
+   5. ADAPTACIÓN RESPONSIVE GLOBAL (TABLET Y CELULAR)
+   ========================================== */
+@media (max-width: 900px) {
+    h1 {
+        margin-left: 24px !important;
+        margin-right: 24px !important;
+    }
+
+    h2 {
+        margin-left: 24px !important;
+        margin-right: 24px !important;
+    }
+
+    nav, .navbar {
+        padding: 12px 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+        margin-top: 22px !important;
+        margin-left: 16px !important;
+        margin-right: 16px !important;
+    }
+
+    h2 {
+        font-size: 1.15rem;
+        margin-left: 16px !important;
+        margin-right: 16px !important;
+    }
+
+    nav, .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px 8px;
+        white-space: normal;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    table th,
+    table td {
+        padding: 10px 14px !important;
+        font-size: 0.85rem !important;
+    }
+
+    .footer {
+        --footer-ola-alto: 42px;
+        --footer-bloque-alto: 115px;
+        --footer-logo-alto: 105px;
+    }
+
+    .footer-nav-container {
+        padding: 14px 16px 12px;
+        gap: 10px;
+    }
+
+    .footer-btn-group {
+        gap: 10px;
+    }
+
+    .footer-btn-pill {
+        padding: 7px 20px;
+        font-size: 0.82rem;
+    }
+
+    .footer-info,
+    .footer-copyright {
+        font-size: 0.76rem;
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .footer-info {
+        padding-top: 10px;
+        padding-bottom: 3px;
+    }
+
+    .footer-copyright {
+        padding-bottom: 12px;
+    }
+}
+
 @media (max-width: 600px) {
     .footer {
-        --footer-ola-alto: 60px;
-        --footer-bloque-alto: 200px;
-        --footer-logo-alto: 170px;
-    }
-    body .hero-banner-full {
-        padding-bottom: 60px;
-        margin-bottom: -60px;
-    }
-}
-
-/* ==========================================
-   10. ESTILOS HERO BANNER (HERO FULLSCREEN)
-   ========================================== */
-.hero-banner-full {
-    width: 100%;
-    min-height: calc(100vh - 120px);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    box-sizing: border-box;
-    margin-bottom: 0;
-}
-
-.hero-content {
-    max-width: 650px;
-    color: #ffffff;
-    text-align: left;
-}
-
-.hero-tag {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #52b788;
-    margin-bottom: 12px;
-}
-
-.hero-title {
-    font-size: 3rem !important;
-    font-weight: 800 !important;
-    color: #ffffff !important;
-    margin-left: 0 !important;
-    margin-top: 0 !important;
-    margin-bottom: 20px !important;
-    line-height: 1.15;
-    letter-spacing: 0.02em;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.hero-subtitle {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    color: #e2e8f0;
-    margin-bottom: 35px;
-    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
-}
-
-.btn-hero-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 32px;
-    border: 2px solid #ffffff;
-    border-radius: 30px;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    background: transparent;
-    transition: all 0.3s ease;
-}
-
-.btn-hero-outline:hover {
-    background-color: #ffffff;
-    color: var(--color-primario);
-    border-color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(19, 48, 45, 0.4);
-}
-
-.btn-hero-outline .flecha {
-    font-size: 1.1rem;
-    transition: transform 0.2s ease;
-}
-
-.btn-hero-outline:hover .flecha {
-    transform: translateX(5px);
-}
-
-@media (max-width: 768px) {
-    .hero-banner-full {
-        padding: 60px 25px;
-        min-height: auto;
-    }
-
-    .hero-title {
-        font-size: 2.2rem !important;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .contenedor-inicio {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ==========================================
-   NUEVOS ESTILOS PARA INFORMACION.JSP (ESTILO FIRENOVA / EQUIPO)
-   ========================================== */
-.informacion-hero {
-    text-align: center;
-    padding: 40px 20px 10px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.info-badge-top {
-    display: inline-block;
-    background-color: #dcfce7;
-    color: #166534;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-}
-
-.informacion-hero h1.titulo-seccion-informacion {
-    margin: 0 0 12px 0 !important;
-    font-size: 2.2rem;
-    color: var(--color-primario);
-    font-weight: 800;
-    text-align: center;
-}
-
-.subtitulo-informacion {
-    font-size: 1.05rem;
-    color: var(--color-texto-secundario);
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-/* Grid contenedor principal */
-.contenedor-informacion {
-    max-width: 1200px;
-    margin: 35px auto 60px auto;
-    padding: 0 25px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    align-items: stretch;
-}
-
-/* Tarjetas con efecto hover y elevación */
-.tarjeta-info-moderna {
-    background: #ffffff;
-    border-radius: var(--radius-lg);
-    padding: 30px 25px;
-    border: 1px solid var(--color-borde);
-    box-shadow: var(--sombra-suave);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
-
-.tarjeta-info-moderna:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--sombra-elevada);
-    border-color: rgba(45, 106, 79, 0.3);
-}
-
-/* Ícono en cabecera de la tarjeta */
-.tarjeta-icono-contenedor {
-    width: 48px;
-    height: 48px;
-    background-color: #e8f5e9;
-    color: var(--color-secundario);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.tarjeta-icono-contenedor svg {
-    width: 26px;
-    height: 26px;
-}
-
-.tarjeta-info-moderna h2 {
-    margin: 0 0 12px 0 !important;
-    padding: 0 !important;
-    color: var(--color-primario);
-    font-size: 1.3rem;
-    font-weight: 700;
-}
-
-.tarjeta-info-moderna p {
-    color: var(--color-texto);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Fichas de integrantes (#equipo) */
-.equipo-descripcion {
-    margin-bottom: 16px !important;
-}
-
-.grid-integrantes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.ficha-integrante {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background-color: #f8fafc;
-    padding: 8px 12px;
-    border-radius: var(--radius-md);
-    border: 1px solid #edf2f7;
-    transition: background-color 0.2s ease;
-}
-
-.ficha-integrante:hover {
-    background-color: #f1f5f9;
-}
-
-.avatar-iniciales {
-    width: 32px;
-    height: 32px;
-    background-color: var(--color-secundario);
-    color: #ffffff;
-    font-size: 0.78rem;
-    font-weight: 700;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.nombre-integrante {
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--color-texto);
-}
-
-/* Adaptación responsive */
-@media (max-width: 900px) {
-    .contenedor-informacion {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ==========================================
-   SECCIÓN IMPACTO / A QUIÉNES AFECTA
-   ========================================== */
-.seccion-impacto {
-    background-color: #f8fafc;
-    padding: 70px 20px 150px 20px; /* Espaciado inferior ampliado a 150px */
-    border-top: 1px solid var(--color-borde);
-    border-bottom: 1px solid var(--color-borde);
-}
-
-.seccion-impacto h2 {
-    font-size: 1.8rem !important;
-    font-weight: 800 !important;
-    color: var(--color-texto) !important;
-    margin: 0 0 16px 0 !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
-
-.seccion-impacto p {
-    font-size: 1.05rem;
-    color: var(--color-texto-secundario);
-    line-height: 1.7;
-    margin: 0;
-    max-width: 950px;
-}
-/* ==========================================
-   SECCIÓN IMPACTO / ¿A QUIÉNES AFECTA? (DOS COLUMNAS CON BORDE IZQUIERDO)
-   ========================================== */
-
-
-.grid-impacto-dos-columnas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.columna-imagen-impacto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.img-impacto-redondeada {
-    width: 100%;
-    max-width: 490px;
-    height: auto;
-    border-radius: 16px;
-    object-fit: cover;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.columna-texto-impacto {
-    text-align: left;
-}
-
-.titulo-impacto {
-    font-size: 2.4rem !important;
-    font-weight: 800 !important;
-    color: var(--color-texto) !important;
-    margin: 0 0 20px 0 !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    line-height: 1.25;
-}
-
-.p-impacto {
-    font-size: 1rem;
-    color: var(--color-texto-secundario);
-    line-height: 1.7;
-    margin-bottom: 16px;
-}
-
-/* Bloque con barra vertical verde estilo FireNova */
-.bloque-destacado-izq {
-    border-left: 3px solid #52b788;
-    padding-left: 18px;
-    margin-top: 28px;
-margin-bottom: 45px; /* Margen inferior para empujar la línea de separación */
-}
-
-.titulo-destacado-izq {
-    display: block;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: var(--color-texto);
-    margin-bottom: 6px;
-}
-
-.bloque-destacado-izq p {
-    font-size: 0.92rem;
-    color: var(--color-texto-secundario);
-    line-height: 1.6;
-    margin: 0;
-}
-
-/* Adaptación para celulares */
-@media (max-width: 900px) {
-    .grid-impacto-dos-columnas {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-}
-/* ==========================================
-   SECCIÓN "QUÉ ES SHIDO" (ESTILO FIRENOVA)
-   ========================================== */
-/* ==========================================
-   SECCIÓN "QUÉ ES SHIDO" (FILAS VERTICALES CON IMAGEN A LA DERECHA)
-   ========================================== */
-.seccion-que-es-shido {
-    background-color: #f8fafc;
-    padding: 60px 20px 40px 20px;
-}
-
-.contenedor-que-es {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.titulo-que-es {
-    font-size: 2.6rem !important;
-    font-weight: 800 !important;
-    color: var(--color-texto) !important;
-    margin: 0 0 12px 0 !important;
-    margin-left: 0 !important;
-    text-align: left;
-}
-
-.subtitulo-que-es {
-    font-size: 1.1rem;
-    color: var(--color-texto-secundario);
-    margin: 0 0 50px 0;
-    max-width: 650px;
-    line-height: 1.6;
-    text-align: left;
-}
-
-/* Contenedor vertical de los 3 bloques */
-.lista-filas-info {
-    display: flex;
-    flex-direction: column;
-    gap: 55px;
-}
-
-/* Fila individual: Texto a la izquierda (1fr), Imagen a la derecha (1fr) */
-.fila-info-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 45px;
-    align-items: center;
-}
-
-.columna-texto {
-    text-align: left;
-}
-
-.columna-imagen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.img-bloque-info {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    border-radius: var(--radius-lg);
-    object-fit: cover;
-    box-shadow: var(--sombra-suave);
-    border: 1px solid var(--color-borde);
-}
-
-/* Línea divisoria superior en verde claro */
-.linea-acento-top {
-    width: 100%;
-    height: 2px;
-    background-color: #52b788;
-    margin-bottom: 24px;
-}
-
-.columna-texto h2 {
-    font-size: 1.35rem !important;
-    font-weight: 700 !important;
-    color: var(--color-texto) !important;
-    margin: 0 0 14px 0 !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-}
-
-.columna-texto p {
-    font-size: 0.95rem;
-    color: var(--color-texto-secundario);
-    line-height: 1.65;
-    margin: 0;
-}
-
-/* Adaptación responsive en celulares (el texto siempre va primero) */
-@media (max-width: 768px) {
-    .fila-info-item {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    .fila-info-item .columna-texto {
-        order: 1;
-    }
-    .fila-info-item .columna-imagen {
-        order: 2;
+        --footer-ola-alto: 35px;
+        --footer-bloque-alto: 100px;
+        --footer-logo-alto: 92px;
     }
 }

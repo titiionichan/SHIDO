@@ -1,0 +1,202 @@
+/* ==========================================
+   CANTEROS.JSP - Gestión de Canteros
+   Se carga después de estilo.css (base)
+   ========================================== */
+
+/* ---------- Formulario + imagen lateral ---------- */
+.seccion-formulario-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 100px;
+    margin: 10px 0 35px 80px;
+    flex-wrap: wrap;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 18px 22px;
+    border-radius: 8px;
+    border-left: 5px solid #2d6a4f;
+    border-top: 1px solid var(--color-borde);
+    border-right: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: var(--transicion-suave);
+}
+
+.huerta-imagen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-left: 140px;
+    transform: translateY(-15px);
+}
+
+.huerta-imagen-container img {
+    width: 490px;
+    height: 370px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--color-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.huerta-imagen-container img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 2;
+}
+
+/* ---------- Campos del formulario ---------- */
+.form-group {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: #1b4332;
+    margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group select {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background-color: #ffffff;
+    outline: none;
+    transition: var(--transicion-suave);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+/* ---------- Botón de envío y enlace cancelar ---------- */
+.btn-submit {
+    display: block;
+    background-color: #2d6a4f;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transicion-suave);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #1b4332;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.link-cancelar {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* ---------- Tabla de listado ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-tarjeta);
+    margin: 0;
+}
+
+table th {
+    background-color: var(--color-secundario);
+    color: #ffffff;
+    font-size: 0.825rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 20px;
+    text-align: left;
+    border: none;
+}
+
+table td {
+    padding: 14px 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    font-size: 0.925rem;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover {
+    background-color: #f1f5f9;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/* ---------- Adaptación responsive ---------- */
+@media (max-width: 1150px) {
+    .seccion-formulario-logo {
+        gap: 35px;
+        margin: 10px 24px 30px 24px;
+    }
+
+    .huerta-imagen-container {
+        margin-left: 0;
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .seccion-formulario-logo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        margin: 10px 16px 28px 16px;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 16px 18px;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+
+    .huerta-imagen-container {
+        width: 100%;
+        margin-left: 0;
+        transform: none;
+    }
+
+    .huerta-imagen-container img {
+        width: 100%;
+        height: 240px;
+    }
+}

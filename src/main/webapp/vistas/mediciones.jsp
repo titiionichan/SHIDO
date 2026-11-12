@@ -11,82 +11,8 @@
     <meta charset="UTF-8">
     <title>Mediciones - SHIDO</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/estilos/estilo.css">
-    <style>
-        .seccion-formulario-logo {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 100px;
-            margin: -15px 0 20px 0;
-            flex-wrap: wrap;
-        }
-        .form-container {
-            max-width: 400px;
-            width: 100%;
-            background-color: #ffffff;
-            padding: 18px 22px;
-            border-radius: 8px;
-            border-left: 5px solid #2d6a4f;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-        }
-        .form-group {
-            display: block;
-            margin-bottom: 12px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            color: #1b4332;
-            margin-bottom: 4px;
-        }
-        .form-group input, 
-        .form-group select {
-            display: block;
-            width: 100%;
-            padding: 8px 10px;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 0.95rem;
-        }
-        .btn-submit {
-            display: block;
-            background-color: #2d6a4f;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .btn-submit:hover {
-            background-color: #1b4332;
-        }
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            transform: translateY(-35px);
-        }
-        .logo-container img {
-            width: 340px;
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
-        }
-        .alerta-error {
-            color: #721c24;
-            background-color: #f8d7da;
-            border: 1px solid #f5c6cb;
-            padding: 10px 15px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/estilos/mediciones.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <%@ include file="menu.jsp" %>
@@ -147,7 +73,7 @@
 
                 <button type="submit" class="btn-submit"><%= esEdicion ? "Guardar Cambios" : "Agregar Medición" %></button>
                 <% if (esEdicion) { %>
-                    <a href="<%= request.getContextPath() %>/LeerMedicionesSv" style="display:inline-block; margin-top:10px;">Cancelar</a>
+                    <a href="<%= request.getContextPath() %>/LeerMedicionesSv" class="link-cancelar">Cancelar</a>
                 <% } %>
             </form>
         </div>

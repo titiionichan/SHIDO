@@ -1,0 +1,221 @@
+/* ==========================================
+   ESPECIES.JSP - Gestión de Especies
+   Se carga después de estilo.css (base)
+   ========================================== */
+
+/* ---------- Formulario + cuadrícula de 4 imágenes ---------- */
+.seccion-formulario-logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+    margin: 10px 40px 35px 80px;
+    flex-wrap: wrap;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 100%;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    padding: 18px 22px;
+    border-radius: 8px;
+    border-left: 5px solid #2d6a4f;
+    border-top: 1px solid var(--color-borde);
+    border-right: 1px solid var(--color-borde);
+    border-bottom: 1px solid var(--color-borde);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: var(--transicion-suave);
+}
+
+.huerta-especies-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 520px;
+    height: 305px;
+    flex-shrink: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid var(--color-borde);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-left: 20px;
+    box-sizing: border-box;
+}
+
+.huerta-especies-container img {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.huerta-especies-container img:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    position: relative;
+    z-index: 2;
+}
+
+/* ---------- Campos del formulario ---------- */
+.form-group {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: #1b4332;
+    margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group select {
+    display: block;
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    background-color: #ffffff;
+    outline: none;
+    transition: var(--transicion-suave);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+/* ---------- Botón de envío y enlace cancelar ---------- */
+.btn-submit {
+    display: block;
+    background-color: #2d6a4f;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transicion-suave);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #1b4332;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.link-cancelar {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* ---------- Mensaje de error ---------- */
+.alerta-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* ---------- Tabla de listado ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-tarjeta);
+    margin: 0;
+}
+
+table th {
+    background-color: var(--color-secundario);
+    color: #ffffff;
+    font-size: 0.825rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 20px;
+    text-align: left;
+    border: none;
+}
+
+table td {
+    padding: 14px 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    font-size: 0.925rem;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:hover {
+    background-color: #f1f5f9;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/* ---------- Adaptación responsive ---------- */
+@media (max-width: 1200px) {
+    .seccion-formulario-logo {
+        margin: 10px 24px 30px 24px;
+        gap: 30px;
+    }
+
+    .huerta-especies-container {
+        margin-left: 0;
+        width: 100%;
+        max-width: 520px;
+        height: 305px;
+        flex-shrink: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .seccion-formulario-logo {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        margin: 10px 16px 28px 16px;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 16px 18px;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+
+    .huerta-especies-container {
+        max-width: 100%;
+        height: 250px;
+        padding: 8px;
+        gap: 8px;
+    }
+}

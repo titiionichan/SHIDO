@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información - SHIDO</title>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/estilos/estilo.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/estilos/informacion.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <%-- Menú superior de navegación --%>
@@ -30,16 +32,14 @@
                         </p>
                     </div>
                     <div class="columna-imagen">
-                        <img src="<%= request.getContextPath() %>/img/problema.png" alt="El problema" class="img-bloque-info">
-                        <img src="<%= request.getContextPath() %>/img/huerta_bancales.png" alt="Huerta bancales" class="img-bloque-info">
+                        <img src="<%= request.getContextPath() %>/img/huerta_tomates.jpeg" alt="Huerta bancales" class="img-bloque-info">
                     </div>
                 </article>
 
                 <!-- Bloque 2: La solución -->
                 <article class="fila-info-item fila-invertida">
                     <div class="columna-imagen">
-                        <img src="<%= request.getContextPath() %>/img/solucion.png" alt="La solución" class="img-bloque-info">
-                        <img src="<%= request.getContextPath() %>/img/huerta_macetitas.png" alt="Huerta macetitas" class="img-bloque-info">
+                        <img src="<%= request.getContextPath() %>/img/logo_shido.png" alt="Logo SHIDO" class="img-bloque-info">
                     </div>
                     <div class="columna-texto">
                         <div class="linea-acento-top"></div>
@@ -60,7 +60,7 @@
                         </p>
                     </div>
                     <div class="columna-imagen">
-                        <img src="<%= request.getContextPath() %>/img/donde_esta.png" alt="Dónde está hoy" class="img-bloque-info">
+                        <img src="<%= request.getContextPath() %>/img/patio_fatima_img.jpg" alt="Dónde está hoy" class="img-bloque-info">
                     </div>
                 </article>
             </div>
@@ -103,21 +103,49 @@
     </section>
 
     <!-- Sección Equipo / Quiénes somos -->
-    <section class="seccion-equipo-simple" id="quienes-somos">
-        <div class="contenedor-que-es">
-            <div class="linea-acento-top"></div>
-            <h2>Quiénes somos</h2>
-            <p>Desarrollado por alumnos del Instituto Técnico Nuestra Señora de Fátima:</p>
+<section class="seccion-equipo-simple" id="quienes-somos">
+    <div class="contenedor-que-es">
+        <div class="linea-acento-top"></div>
+        <h2>Quiénes somos</h2>
+        <p>Este proyecto está siendo desarrollado por estudiantes de Técnico en Computación del Instituto Técnico Nuestra Señora de Fátima:</p>
+        
+        <div class="grid-equipo-dos-columnas">
+            <!-- Columna izquierda: Nombres y especialidades -->
             <ul class="lista-integrantes-horizontal">
-                <li>Tiziano Soliz</li>
-                <li>Shantal Guzman</li>
-                <li>Yoel Bautista</li>
-                <li>Joaquin Suleta</li>
-                <li>Agustin Suleta</li>
+                <li>
+                    <span class="nombre-integrante">Tiziano Soliz</span>
+                    <span class="flecha-especialidad" aria-hidden="true">→</span>
+                    <span class="rol-integrante">Sitio web y bases de datos</span>
+                </li>
+                <li>
+                    <span class="nombre-integrante">Shantal Guzman</span>
+                    <span class="flecha-especialidad" aria-hidden="true">→</span>
+                    <span class="rol-integrante">Hardware y carpeta de campo</span>
+                </li>
+                <li>
+                    <span class="nombre-integrante">Yoel Bautista</span>
+                    <span class="flecha-especialidad" aria-hidden="true">→</span>
+                    <span class="rol-integrante">Hardware e IA</span>
+                </li>
+                <li>
+                    <span class="nombre-integrante">Joaquin Suleta</span>
+                    <span class="flecha-especialidad" aria-hidden="true">→</span>
+                    <span class="rol-integrante">Diseño visual y hardware</span>
+                </li>
+                <li>
+                    <span class="nombre-integrante">Agustin Suleta</span>
+                    <span class="flecha-especialidad" aria-hidden="true">→</span>
+                    <span class="rol-integrante">Sitio web y diseño visual</span>
+                </li>
             </ul>
-        </div>
-    </section>
 
+            <!-- Columna derecha: Foto del equipo -->
+            <div class="columna-imagen-equipo">
+                <img src="<%= request.getContextPath() %>/img/foto_quienes_somos.jpeg" alt="Equipo SHIDO" class="img-equipo-redondeada">
+            </div>
+        </div>
+    </div>
+</section>
     <%-- Pie de página --%>
     <%@ include file="pie.jsp" %>
 </body>
